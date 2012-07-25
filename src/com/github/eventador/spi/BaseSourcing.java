@@ -4,9 +4,9 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.SerializationUtils;
 
 import com.github.eventador.Event;
-import com.github.eventador.Sourcing;
+import com.github.eventador.SourcingWriter;
 
-public abstract class BaseSourcing implements Sourcing
+public abstract class BaseSourcing implements SourcingWriter
 {
    protected abstract void source(String event);
    

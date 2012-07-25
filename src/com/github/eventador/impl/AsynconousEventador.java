@@ -2,16 +2,16 @@ package com.github.eventador.impl;
 
 import java.util.concurrent.Executor;
 
-import com.github.eventador.Sourcing;
+import com.github.eventador.SourcingWriter;
 import com.google.common.eventbus.AsyncEventBus;
 
 public class AsynconousEventador extends SyncronousEventador
 {
-   public AsynconousEventador(Sourcing sourcing, Executor executor)
+   public AsynconousEventador(SourcingWriter sourcing, Executor executor)
    {
       super(sourcing, new AsyncEventBus(executor));
    }
-   public AsynconousEventador(Executor executor, Sourcing sourcing, String identifier)
+   public AsynconousEventador(Executor executor, SourcingWriter sourcing, String identifier)
    {
       super(sourcing, new AsyncEventBus(identifier, executor));
    }

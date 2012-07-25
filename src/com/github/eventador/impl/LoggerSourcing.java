@@ -3,10 +3,10 @@ package com.github.eventador.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.eventador.Sourcing;
+import com.github.eventador.SourcingWriter;
 import com.github.eventador.spi.BaseSourcing;
 
-public class LoggerSourcing extends BaseSourcing implements Sourcing
+public class LoggerSourcing extends BaseSourcing implements SourcingWriter
 {
    private Logger logger;
    

@@ -11,7 +11,7 @@ public class TestSpringConfigrationEvent
    @Before
    public void before()
    {
-      ac=new AnnotationConfigApplicationContext(Configuration.class);
+      ac=new AnnotationConfigApplicationContext(SpringExampleConfiguration.class);
    }
    public void test()
    {

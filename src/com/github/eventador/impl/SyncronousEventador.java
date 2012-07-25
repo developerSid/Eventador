@@ -2,7 +2,7 @@ package com.github.eventador.impl;
 
 import com.github.eventador.Event;
 import com.github.eventador.Eventador;
-import com.github.eventador.Sourcing;
+import com.github.eventador.SourcingWriter;
 import com.google.common.eventbus.EventBus;
 
 public class SyncronousEventador implements Eventador
@@ -10,15 +10,15 @@ public class SyncronousEventador implements Eventador
    private EventBus bus;
    private SourcingEventRouter router;
    
-   public SyncronousEventador(Sourcing sourcing)
+   public SyncronousEventador(SourcingWriter sourcing)
    {
       this(sourcing, new EventBus());
    }
-   public SyncronousEventador(Sourcing sourcing, String identifier)
+   public SyncronousEventador(SourcingWriter sourcing, String identifier)
    {
       this(sourcing, new EventBus(identifier));
    }
-   protected SyncronousEventador(Sourcing sourcing, EventBus bus)
+   protected SyncronousEventador(SourcingWriter sourcing, EventBus bus)
    {
       this.bus=bus;
       this.router=new SourcingEventRouter(sourcing);
