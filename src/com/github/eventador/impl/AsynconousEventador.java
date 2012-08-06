@@ -7,6 +7,10 @@ import com.google.common.eventbus.AsyncEventBus;
 
 public class AsynconousEventador extends SyncronousEventador
 {
+   public AsynconousEventador(Executor executor)
+   {
+      this(new NullSourcing(), executor);
+   }
    public AsynconousEventador(SourcingWriter sourcing, Executor executor)
    {
       super(sourcing, new AsyncEventBus(executor));

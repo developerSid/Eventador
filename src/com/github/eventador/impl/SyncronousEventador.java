@@ -10,6 +10,10 @@ public class SyncronousEventador implements Eventador
    private EventBus bus;
    private SourcingEventRouter router;
    
+   public SyncronousEventador()
+   {
+      this(new NullSourcing());
+   }
    public SyncronousEventador(SourcingWriter sourcing)
    {
       this(sourcing, new EventBus());

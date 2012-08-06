@@ -10,7 +10,7 @@ class SourcingEventRouter
    
    SourcingEventRouter(SourcingWriter sourcing)
    {
-      this.sourcing = sourcing;
+      this.sourcing=sourcing;
    }
    @Subscribe public void event(Event event)
    {
