@@ -8,6 +8,7 @@ import org.junit.Test
 
 import spock.lang.Specification
 
+
 public class TestTimeUtils  extends Specification
 {
    private static final long time=1343853779245l //3:42ish August 1 2012
