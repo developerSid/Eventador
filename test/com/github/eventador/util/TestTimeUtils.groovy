@@ -10,11 +10,11 @@ import spock.lang.Specification
 
 public class TestTimeUtils  extends Specification
 {
-   private static final long time=1343853779245l; //3:42ish August 1 2012
-   static final def simpleFormat=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss:SS");
+   private static final long time=1343853779245l //3:42ish August 1 2012
+   static final def simpleFormat=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss:SS")
    
    @Test
-   public void "rount to next whole TimeUnit" ()
+   public void "round to next whole TimeUnit" ()
    {
       when:
          long timeResult=TimeUtils.roundToNextWholeUnit(unit, testTime)
