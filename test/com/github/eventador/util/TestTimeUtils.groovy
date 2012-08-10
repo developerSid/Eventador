@@ -15,7 +15,7 @@ public class TestTimeUtils  extends Specification
    static final def simpleFormat=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss:SS")
    
    @Test
-   public void "round to next whole TimeUnit" ()
+   public void "round to next whole TimeUnit success" ()
    {
       when:
          long timeResult=TimeUtils.roundToNextWholeUnit(unit, testTime)
@@ -27,7 +27,7 @@ public class TestTimeUtils  extends Specification
          TimeUnit.HOURS   | time     | 1343857320000l
          TimeUnit.DAYS    | time     | 1343940120000l
    }
-   def "format next whole TimeUnit" ()
+   def "format next whole TimeUnit success" ()
    {
       when:
          String formattedTime=TimeUtils.formatWholeUnit(unit, format, testTime)
@@ -38,5 +38,9 @@ public class TestTimeUtils  extends Specification
          TimeUnit.MINUTES | simpleFormat | "08/01/2012 15:42:00:00" | time
          TimeUnit.HOURS   | simpleFormat | "08/01/2012 15:00:00:00" | time
          TimeUnit.DAYS    | simpleFormat | "08/01/2012 00:00:00:00" | time
+   }
+   def "round to next whole number fails with null because of bad time unit" ()
+   {
+      
    }
 }

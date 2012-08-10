@@ -9,6 +9,12 @@ public final class TimeUtils
 {
    private TimeUtils(){/*Don't instantiate*/}
    
+   /**
+    * rounds an instant
+    * @param unit
+    * @param time
+    * @return
+    */
    public static long roundToNextWholeUnit(TimeUnit unit, long time)
    {
       DateTime currentTime=new DateTime(time);
@@ -25,6 +31,7 @@ public final class TimeUtils
             currentTime=currentTime.plusDays(1);
             break;
          default:
+            return -1;
       }
       
       return new DateTime(currentTime.getYear(), currentTime.getMonthOfYear(), currentTime.getDayOfMonth(), currentTime.getHourOfDay(), currentTime.getMinuteOfHour(), 0, 0).getMillis();
@@ -52,6 +59,7 @@ public final class TimeUtils
             minuteOfHour=0;
             break;
          default:
+            return null;
       }
       
       return new DateTime(currentTime.getYear(), currentTime.getMonthOfYear(), dayOfMonth, hourOfDay, minuteOfHour, 0, 0).toString(format.toPattern());
