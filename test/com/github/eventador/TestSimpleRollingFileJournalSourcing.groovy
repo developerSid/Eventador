@@ -47,18 +47,18 @@ class TestSimpleRollingFileJournalSourcing extends Specification
    def "make sure file rolls" ()
    {
       File tempDir=tempFolder.newFolder()
-      SourcingWriter writer=new SimpleRollingFileJournalSourcing(tempDir, TimeUnit.SECONDS)
+      SourcingWriter writer=new SimpleRollingFileJournalSourcing(tempDir, TimeUnit.MINUTES)
       Event one=new EventObjectTest("64E2CA86-42BD-47AF-8516-659ED97A0AFB")
       Event two=new EventObjectTest("7B4838C3-ACE2-4818-BEC4-A65B187A4CB3")
       Event three=new EventObjectTest("2D2A681B-7C8F-4395-82DE-9327BE7CBE82")
       
-      when:
-         writer.source(one);
-         TimeUnit.MILLISECONDS.sleep(1200)
-         writer.source(two)
-         TimeUnit.MILLISECONDS.sleep(1200)
-         writer.source(three);
-      then:
+      writer.source(one);
+      TimeUnit.SECONDS.sleep(65)
+      writer.source(two)
+      TimeUnit.SECONDS.sleep(65)
+      writer.source(three);
+      
+      expect:
          tempDir.listFiles().size() == 3
    }
 }

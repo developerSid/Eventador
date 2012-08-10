@@ -20,7 +20,7 @@ import com.github.eventador.util.TimeUtils;
 
 public class SimpleRollingFileJournalSourcing implements SourcingWriter
 {
-   private static SimpleDateFormat format=new SimpleDateFormat("MM-dd-yyyy-HH:mm:ss:SS");
+   private static SimpleDateFormat format=new SimpleDateFormat("MM-dd-yyyy-HHmmssSS");
    private final File journalDir;
    private PrintStream journalChannel;
    private final TimeUnit unit;

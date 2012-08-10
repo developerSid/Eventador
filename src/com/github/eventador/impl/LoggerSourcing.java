@@ -6,6 +6,11 @@ import org.slf4j.LoggerFactory;
 import com.github.eventador.SourcingWriter;
 import com.github.eventador.spi.BaseSourcing;
 
+/**
+ * Simple implementation that will log events the application configured logging if it has been configured.
+ * @author developer.sid@gmail.com
+ *
+ */
 public class LoggerSourcing extends BaseSourcing implements SourcingWriter
 {
    private Logger logger;

@@ -39,8 +39,30 @@ public class TestTimeUtils  extends Specification
          TimeUnit.HOURS   | simpleFormat | "08/01/2012 15:00:00:00" | time
          TimeUnit.DAYS    | simpleFormat | "08/01/2012 00:00:00:00" | time
    }
-   def "round to next whole number fails with null because of bad time unit" ()
+   def "round to next whole number fails with -1 because of unsupported time unit" ()
    {
-      
+      when:
+         long timeResult=TimeUtils.roundToNextWholeUnit(unit, testTime)
+      then:
+         timeResult == -1
+      where:
+         unit                  | testTime
+         TimeUnit.NANOSECONDS  | time
+         TimeUnit.MILLISECONDS | time
+         TimeUnit.SECONDS      | time
+         null                  | time
+   }
+   def "format next whole fails with null when an unsupported TimeUnit is used" ()
+   {
+      when:
+         String formattedTime=TimeUtils.formatWholeUnit(unit, format, testTime)
+      then:
+         formattedTime == null
+      where:
+         unit                  | format       | testTime
+         TimeUnit.NANOSECONDS  | simpleFormat | time 
+         TimeUnit.MILLISECONDS | simpleFormat | time 
+         TimeUnit.SECONDS      | simpleFormat | time 
+         null                  | simpleFormat | time 
    }
 }
