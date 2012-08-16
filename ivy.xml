@@ -21,7 +21,7 @@
 		
 		<dependency org="joda-time" name="joda-time" rev="2.1" />
 		
-		<dependency org="com.google.guava" name="guava" rev="12.0.1" />
+		<dependency org="com.google.guava" name="guava" rev="13.0" />
 		
 		<dependency org="org.slf4j" name="jcl-over-slf4j" rev="1.6.6" />
 		<dependency org="org.slf4j" name="slf4j-log4j12" rev="1.6.6" />

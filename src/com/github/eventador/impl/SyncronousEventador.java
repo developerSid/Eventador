@@ -1,6 +1,7 @@
 package com.github.eventador.impl;
 
-import com.github.eventador.Event;
+import java.io.Serializable;
+
 import com.github.eventador.Eventador;
 import com.github.eventador.SourcingWriter;
 import com.google.common.eventbus.EventBus;
@@ -57,7 +58,7 @@ public class SyncronousEventador implements Eventador
       bus.unregister(subscriber);
    }
    @Override
-   public void publish(Event event)
+   public void publish(Serializable event)
    {
       bus.post(event);
    }

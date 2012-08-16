@@ -1,5 +1,7 @@
 package com.github.eventador;
 
+import java.io.Serializable;
+
 import com.google.common.eventbus.Subscribe;
 
 /**
@@ -20,8 +22,8 @@ public interface Eventador
     */
    public void unsubscribe(Object subscriber);
    /**
-    * publish an {@link Event} to the subscribers registered in the framework
+    * publish an event to the subscribers registered in the framework
     * @param event the event to publish
     */
-   public void publish(Event event);
+   public void publish(Serializable event);
 }

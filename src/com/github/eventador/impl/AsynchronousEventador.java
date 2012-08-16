@@ -2,7 +2,6 @@ package com.github.eventador.impl;
 
 import java.util.concurrent.Executor;
 
-import com.github.eventador.Event;
 import com.github.eventador.Eventador;
 import com.github.eventador.SourcingWriter;
 import com.google.common.eventbus.AsyncEventBus;
@@ -25,8 +24,8 @@ public class AsynchronousEventador extends SyncronousEventador
    }
    /**
     * Creates an {@link Eventador} that will route events to the provided {@link SourcingWriter} using the provided {@link Executor}
-    * @param executor the {@link Executor} that will be used to execute each {@link Event} passing to the subscribers
-    * @param sourcing the {@link SourcingWriter} that will be used to log {@link Event} to
+    * @param executor the {@link Executor} that will be used to execute each event passing to the subscribers
+    * @param sourcing the {@link SourcingWriter} that will be used to log event to
     */
    public AsynchronousEventador(Executor executor, SourcingWriter sourcing)
    {
@@ -35,7 +34,7 @@ public class AsynchronousEventador extends SyncronousEventador
    /**
     * Creates an {@link Eventador} with the provided identifier, will route events to the provided {@link SourcingWriter} using the provided {@link Executor}
     * @param executor {@link Executor} that will be used to execute each event as they are passed to the configured subscribers 
-    * @param sourcing the {@link SourcingWriter} that will be used to log {@link Event} to 
+    * @param sourcing the {@link SourcingWriter} that will be used to log the event to 
     * @param identifier the name that will be given to the underlying event bus implementation
     */
    public AsynchronousEventador(Executor executor, SourcingWriter sourcing, String identifier)

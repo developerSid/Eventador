@@ -3,6 +3,7 @@ package com.github.eventador.impl;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.Semaphore;
@@ -12,7 +13,6 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SerializationUtils;
 
-import com.github.eventador.Event;
 import com.github.eventador.SourcingWriter;
 import com.github.eventador.exception.InputOutputException;
 import com.github.eventador.exception.UnableToSourceException;
@@ -59,7 +59,7 @@ public class SimpleRollingFileJournalSourcing implements SourcingWriter
       }
    }
    @Override
-   public void source(Event event) throws UnableToSourceException
+   public void source(Serializable event) throws UnableToSourceException
    {
       try
       {
@@ -88,7 +88,7 @@ public class SimpleRollingFileJournalSourcing implements SourcingWriter
          
       }
    }
-   private void writeSource(PrintStream journalChannel, Event event, long currentTime) throws UnableToSourceException
+   private void writeSource(PrintStream journalChannel, Serializable event, long currentTime) throws UnableToSourceException
    {
       journalChannel.printf("[%s] %s\n", format.format(new Date(currentTime)), Base64.encodeBase64String(SerializationUtils.serialize(event)));
    }

@@ -1,6 +1,7 @@
 package com.github.eventador.impl;
 
-import com.github.eventador.Event;
+import java.io.Serializable;
+
 import com.github.eventador.SourcingWriter;
 
 /**
@@ -11,7 +12,7 @@ import com.github.eventador.SourcingWriter;
 public class NullSourcing implements SourcingWriter
 {
    @Override
-   public void source(Event event)
+   public void source(Serializable event)
    {
 
    }

@@ -1,5 +1,7 @@
 package com.github.eventador;
 
+import java.io.Serializable;
+
 import com.github.eventador.exception.UnableToSourceException;
 
 /**
@@ -14,7 +16,7 @@ public interface SourcingWriter
     * @param event the event that needs to be written
     * @throws UnableToSourceException if some kind of error occurs during the attempt to write the event
     */
-   public void source(Event event) throws UnableToSourceException;
+   public void source(Serializable event) throws UnableToSourceException;
    /**
     * Invoked to do any required cleanup when the system is being shut down.
     */

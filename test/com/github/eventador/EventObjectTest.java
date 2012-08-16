@@ -1,8 +1,9 @@
 package com.github.eventador;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class EventObjectTest implements Event
+public class EventObjectTest implements Serializable
 {
    private static final long serialVersionUID=3037713647589696612L;
    private UUID identifier;
@@ -11,7 +12,6 @@ public class EventObjectTest implements Event
    {
       this.identifier=UUID.fromString(identifier);
    }
-   @Override
    public UUID getIdentifier()
    {
       return identifier;
@@ -19,9 +19,9 @@ public class EventObjectTest implements Event
    @Override
    public boolean equals(Object obj)
    {
-      if(obj instanceof Event)
+      if(obj instanceof EventObjectTest)
       {
-         return ((Event)obj).getIdentifier().equals(getIdentifier());
+         return ((EventObjectTest)obj).getIdentifier().equals(getIdentifier());
       }
       else
       {
