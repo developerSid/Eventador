@@ -21,7 +21,7 @@ dependencies {
    compile 'org.apache.commons:commons-lang3:3.1'
    compile 'commons-codec:commons-codec:1.6'
    compile 'commons-io:commons-io:2.4'
-   compile 'org.springframework:org.springframework.context:3.1.1.RELEASE'
+//   compile 'org.springframework:org.springframework.context:3.1.1.RELEASE'
 
    compile 'joda-time:joda-time:2.1'
 
@@ -34,14 +34,3 @@ dependencies {
    testCompile 'junit:junit:4.10'     
 }
 
-sourceSets {
-    main {
-        java {
-            srcDir 'src/'
-        }
-    }
-    test {
-        java {srcDir 'test/'}
-        groovy {srcDir 'test/'} 
-    }
-}
