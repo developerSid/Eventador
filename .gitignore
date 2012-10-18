@@ -1,7 +1,16 @@
-build
-bin
-.gradle
 .DS_Store
+.gradle
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+.metadata
 .classpath
+.gradle
 .project
 .settings
+bin
+build
+
