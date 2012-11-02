@@ -8,6 +8,14 @@ public class EventObjectTest implements Serializable
    private static final long serialVersionUID=3037713647589696612L;
    private UUID identifier;
    
+   public EventObjectTest()
+   {
+      this(UUID.randomUUID());
+   }
+   public EventObjectTest(UUID uuid)
+   {
+      this.identifier=uuid;
+   }
    public EventObjectTest(String identifier)
    {
       this.identifier=UUID.fromString(identifier);
