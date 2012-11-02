@@ -2,21 +2,14 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.1'
-}
 repositories {
    mavenCentral()
-   
-   maven {
-      url "http://repository.springsource.com/maven/bundles/release"
-   }
-   maven {
-      url "http://repository.springsource.com/maven/bundles/external"
-   }
+}
+configurations {
+   all*.exclude group: 'commons-logging', module: 'commons-logging'
 }
 dependencies {
-   groovy 'org.codehaus.groovy:groovy-all:1.8.6'
+   groovy 'org.codehaus.groovy:groovy-all:1.8.8'
 
    compile 'org.apache.commons:commons-lang3:3.1'
    compile 'commons-codec:commons-codec:1.6'
@@ -24,12 +17,23 @@ dependencies {
 
    compile 'joda-time:joda-time:2.1'
 
-   compile 'com.google.guava:guava:13.0'
+   compile 'com.google.guava:guava:13.0.1'
    
-   compile 'org.slf4j:jcl-over-slf4j:1.6.6'
-   compile 'org.slf4j:slf4j-log4j12:1.6.6'
+   compile 'org.slf4j:jcl-over-slf4j:1.7.2'
+   compile 'org.slf4j:slf4j-log4j12:1.7.2'
    
-   testCompile 'org.spockframework:spock-core:0.6-groovy-1.8'
-   testCompile 'junit:junit:4.10'     
+   testCompile 'org.spockframework:spock-core:0.7-groovy-1.8'
+   testCompile 'junit:junit:4.10'
+   testCompile 'cglib:cglib:2.2.2'
 }
+
+task wrapper(type: Wrapper) {
+   gradleVersion = '1.2'
+}
+task "create-dirs" << {
+   sourceSets*.java.srcDirs*.each { it.mkdirs() }
+   sourceSets*.groovy.srcDirs*.each { it.mkdirs() }
+   sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
 
