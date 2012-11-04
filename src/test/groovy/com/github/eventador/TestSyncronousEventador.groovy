@@ -18,7 +18,7 @@ class TestSyncronousEventador extends Specification
          eventador.publish(event)
       then:
          notThrown Exception
-         1 * sourcing.source(_)
+         1 * sourcing.source(event)
       cleanup:
          eventador?.destroy()
    }
@@ -32,7 +32,7 @@ class TestSyncronousEventador extends Specification
          eventador.subscribe(listener);
          eventador.publish(event)
       then:
-         1 * listener.process(_)
+         1 * listener.process(event)
          event == listener.events[0]
       cleanup:
          eventador?.destroy()
