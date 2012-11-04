@@ -12,7 +12,7 @@ import com.google.common.eventbus.AsyncEventBus;
  * @author developer.sid@gmail.com
  *
  */
-public class AsynchronousEventador extends SyncronousEventador
+public class AsynchronousEventador extends SynchronousEventador
 {
    /**
     * Creates an {@link Eventador} with the provided {@link Executor}

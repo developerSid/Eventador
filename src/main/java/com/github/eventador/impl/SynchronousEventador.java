@@ -12,7 +12,7 @@ import com.google.common.eventbus.EventBus;
  * @author developer.sid@gmail.com
  *
  */
-public class SyncronousEventador implements Eventador
+public class SynchronousEventador implements Eventador
 {
    private EventBus bus;
    private SourcingEventRouter router;
@@ -20,28 +20,28 @@ public class SyncronousEventador implements Eventador
    /**
     * Default constructor that uses a {@link NullSourcing} sourcing configuration that will not write events to a log
     */
-   public SyncronousEventador()
+   public SynchronousEventador()
    {
       this(new NullSourcing());
    }
    /**
-    * Configures a {@link SyncronousEventador} that will write events to the provided {@link SourcingWriter} implementation
+    * Configures a {@link SynchronousEventador} that will write events to the provided {@link SourcingWriter} implementation
     * @param sourcing a {@link SourcingWriter} that all events that go through the system will be written
     */
-   public SyncronousEventador(SourcingWriter sourcing)
+   public SynchronousEventador(SourcingWriter sourcing)
    {
       this(sourcing, new EventBus());
    }
    /**
-    * Configures a {@link SyncronousEventador} that will write events to the provided {@link SourcingWriter} implementation
+    * Configures a {@link SynchronousEventador} that will write events to the provided {@link SourcingWriter} implementation
     * @param sourcing a {@link SourcingWriter} that all events that go through the system will be written
     * @param identifier the name given to the underlying framework that routes events to the appropriate subscribers
     */
-   public SyncronousEventador(SourcingWriter sourcing, String identifier)
+   public SynchronousEventador(SourcingWriter sourcing, String identifier)
    {
       this(sourcing, new EventBus(identifier));
    }
-   protected SyncronousEventador(SourcingWriter sourcing, EventBus bus)
+   protected SynchronousEventador(SourcingWriter sourcing, EventBus bus)
    {
       this.bus=bus;
       this.router=new SourcingEventRouter(sourcing);

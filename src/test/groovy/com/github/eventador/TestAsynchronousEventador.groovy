@@ -1,19 +1,20 @@
 package com.github.eventador
 
-import groovy.json.JsonOutput.*
+import java.util.concurrent.Executors
+
 import spock.lang.Specification
 
-import com.github.eventador.impl.SynchronousEventador
+import com.github.eventador.impl.AsynchronousEventador
 
 
-class TestSyncronousEventador extends Specification
+class TestAsynchronousEventador extends Specification
 {
    def "test eventador with sourcing no listeners" ()
    {
       setup:
          def event=Mock(Serializable)
          def sourcing=Mock(SourcingWriter)
-         def eventador=new SynchronousEventador(sourcing)
+         def eventador=new AsynchronousEventador(Executors.newFixedThreadPool(2), sourcing)
       when:
          eventador.publish(event)
       then:
@@ -27,7 +28,7 @@ class TestSyncronousEventador extends Specification
       setup:
          def listener=Spy(EventObjectTestListener, constructor:[])
          def event=new EventObjectTest("64E2CA86-42BD-47AF-8516-659ED97A0AFB")
-         def eventador=new SynchronousEventador()
+         def eventador=new AsynchronousEventador()
       when:
          eventador.subscribe(listener);
          eventador.publish(event)
@@ -43,7 +44,7 @@ class TestSyncronousEventador extends Specification
          def listener1=Spy(EventObjectTestListener, constructor:[])
          def listener2=Spy(EventObjectTestListener, constructor:[])
          def sourcing=Mock(SourcingWriter)
-         def eventador=new SynchronousEventador(sourcing)
+         def eventador=new AsynchronousEventador(sourcing)
       when:
          eventador.subscribe(listener1)
          eventador.subscribe(listener2)
@@ -64,7 +65,7 @@ class TestSyncronousEventador extends Specification
          def event1=new EventObjectTest()
          def event2=new EventObjectTest()
          def sourcing=Mock(SourcingWriter)
-         def eventador=new SynchronousEventador(sourcing)
+         def eventador=new AsynchronousEventador(sourcing)
       when:
          eventador.subscribe(listener1)
          eventador.subscribe(listener2)
